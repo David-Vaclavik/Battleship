@@ -1,0 +1,90 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  line-height: calc(1em + 0.5rem); /*? experimental */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  /* font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+  background-color: oklch(20% 0 0);
+  color: oklch(95% 0 0);
+
+  min-height: 100vh;
+
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  max-width: 75ch;
+  /* Important */
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select,
+dialog {
+  font: inherit;
+}
+
+h1 {
+  font-size: 72px;
+  letter-spacing: 4px;
+}
+
+/* ================================== Reset ends here =================================== */
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: oklch(60% 0.15 240);
+  color: oklch(98% 0 0);
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 2px oklch(0% 0 0 / 0.05);
+}
+
+button:hover {
+  background-color: oklch(70% 0.15 240);
+  box-shadow: 0 2px 6px oklch(0% 0 0 / 0.1);
+}
+
+button:active {
+  background-color: oklch(50% 0.15 240);
+  box-shadow: 0 1px 2px oklch(0% 0 0 / 0.08);
+}
