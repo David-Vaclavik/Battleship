@@ -1,30 +1,3 @@
-# Basic Template
-
-A basic starter template for web projects using HTML, CSS, and JavaScript, bundled with Webpack and linted with ESLint.
-
-## Features
-
-- Modern project structure
-- Webpack for bundling
-- ESLint for code quality
-- Organized folders for assets, modules, and styles
-- Ready-to-use scripts for development and production
-
-## Getting Started
-
-### 1. Clone the repository
-
-```sh
-git clone git@github.com:David-Vaclavik/Basic-Template.git
-cd Basic-Template
-```
-
-### 2. Install dependencies
-
-```sh
-npm install
-```
-
 ### 3. Start the development server
 
 ```sh
@@ -59,48 +32,31 @@ eslint.config.mjs  # ESLint configuration
 
 ---
 
-## Using This Template for a New Project
+# Battleship
 
-When you use this template for a new project, you should update the following:
+A classic Battleship game implementation with AI opponent built using Test-Driven Development (TDD) principles.
 
-1. **Project Metadata**
+## Features
 
-   - **package.json**
-     - `"name"`: Change to your new project’s name (lowercase, no spaces).
-     - `"description"`: Update to describe your new project.
-     - `"author"`: Update if needed.
-     - `"repository"`, `"bugs"`, `"homepage"`: Update URLs to match your new repo.
+- Interactive Battleship game
+- AI opponent with smart targeting
+- Ship placement and validation
+- Attack tracking and hit detection
+- Responsive web interface
 
-2. **README.md**
+## Installation
 
-   - Change the project title and description.
-   - Update any instructions or features to match your new project.
-   - Update the repo URL in the clone command.
+```bash
+npm install
+```
 
-3. **Source Files**
+## Development
 
-   - `index.js`: Replace or remove starter code.
-   - `template.html`: Update the title, meta tags, and content for your new project.
-   - `assets`: Replace placeholder fonts, icons, and images with your own.
-   - `modules`: Rename or remove example modules as needed.
-   - `styles.css`: Replace or extend with your own styles.
-
-4. **Configuration Files**
-
-   - `webpack.config.js`: Update entry/output paths or plugin settings if your structure changes.
-   - `eslint.config.mjs`: Adjust ESLint rules to fit your coding style if needed.
-
-5. **LICENSE**
-
-   - If you want a different license, update the `"license"` field in `package.json` and add a LICENSE file.
-
-6. **Other**
-   - Add or update `.gitignore` entries if your new project needs to ignore other files/folders.
-   - Add new dependencies with `npm install` as needed for your project.
-
-**Summary:**  
-Update all project-specific names, descriptions, URLs, and starter code to reflect your new project.  
-Then you’re ready to start building! 🚀
+```bash
+npm run dev    # Start development server
+npm run build  # Build for production
+npm test       # Run tests
+```
 
 ## License
 

@@ -88,3 +88,33 @@ button:active {
   background-color: oklch(50% 0.15 240);
   box-shadow: 0 1px 2px oklch(0% 0 0 / 0.08);
 }
+
+main {
+  padding: 20px;
+  margin: 20px;
+  background-color: brown;
+}
+
+.gameboard-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 1px;
+  padding: 5px;
+  background-color: oklch(30% 0.15 240);
+}
+
+.gameboard-container button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  color: white;
+  /* background-color: darkblue; */
+}
+
+.gameboard-container button:hover {
+  background-color: oklch(70% 0.15 240);
+}
