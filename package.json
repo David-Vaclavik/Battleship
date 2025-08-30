@@ -1,10 +1,11 @@
 {
   "name": "battleship",
   "version": "1.0.0",
+  "type": "module",
   "description": "A Battleship game implementation with AI opponent using Test-Driven Development.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "build": "webpack",
     "dev": "webpack serve --open",
     "watch": "webpack --watch",
@@ -29,6 +30,7 @@
   "homepage": "https://github.com/David-Vaclavik/Battleship#readme",
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "cross-env": "^10.0.0",
     "css-loader": "^7.1.2",
     "eslint": "^9.33.0",
     "globals": "^16.3.0",

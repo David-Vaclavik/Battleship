@@ -1,19 +1,44 @@
 function testFn(a, b) {
   return a + b;
 }
-module.exports = testFn;
 
 // Your ‘ships’ will be objects that include their length, the number of hits
 // and whether or not they’ve been sunk.
-function ship() {
+function ship(length) {
   let hits = 0;
-  let length = 0;
-  let sunk = false;
 
   return {
-    // increases the number of ‘hits’ in your ship.
     hit() {
-      return;
+      if (this.isSunk()) return;
+      hits += 1;
+    },
+
+    isSunk() {
+      return hits >= length;
+    },
+
+    // getters for testing
+    getHits() {
+      return hits;
+    },
+    getLength() {
+      return length;
     },
   };
 }
+
+export { ship, testFn };
+
+/*
+const cruiser = ship(3);
+console.log(cruiser.isSunk()); // false
+cruiser.hit();
+console.log(cruiser.getHits()); // 1
+console.log(cruiser.isSunk()); // false
+cruiser.hit();
+cruiser.hit();
+console.log(cruiser.isSunk()); // true
+console.log(cruiser.getHits()); // 3
+cruiser.hit();
+console.log(cruiser.getHits()); // 3
+*/
