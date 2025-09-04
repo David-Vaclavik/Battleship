@@ -86,9 +86,32 @@ function gameboard() {
       return board.flat().every((cell) => !cell.ship || cell.ship.isSunk());
     },
 
-    // isValidPlacement(ship, x, y, direction) {
-    //   return
-    // },
+    isValidPlacement(ship, x, y, direction) {
+      const shipLength = ship.getLength();
+
+      if (direction === "row") {
+        // Check if ship would go out of bounds horizontally
+        if (y + shipLength > 10) return false;
+
+        // Check if any position is occupied
+        for (let i = 0; i < shipLength; i++) {
+          if (x < 0 || x >= 10 || y + i < 0 || y + i >= 10) return false;
+          if (board[x][y + i].ship) return false;
+        }
+      } else if (direction === "column") {
+        // Check if ship would go out of bounds vertically
+        if (x + shipLength > 10) return false;
+
+        // Check if any position is occupied
+        for (let i = 0; i < shipLength; i++) {
+          if (x + i < 0 || x + i >= 10 || y < 0 || y >= 10) return false;
+          if (board[x + i][y].ship) return false;
+        }
+      }
+
+      console.log("valid placement");
+      return true;
+    },
   };
 }
 

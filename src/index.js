@@ -6,7 +6,6 @@ import { player } from "./modules/player.js";
 import { ship } from "./modules/ship.js";
 // eslint-disable-next-line
 import { gameboard } from "./modules/gameboard.js";
-// eslint-disable-next-line
 import { playGame, initEventListeners } from "./modules/dom.js";
 
 playGame();

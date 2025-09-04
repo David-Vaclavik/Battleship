@@ -29,18 +29,20 @@ function playGame() {
   }
 
   //TODO: add random placement of ships
+  randomPlacement(P1.getInstance());
+
   // Place ships for Player 1 (human)
-  const p1Fleet = createFleet();
-  P1.getInstance().placeShip(p1Fleet[0], 0, 0, "row"); // Battleship(4)
-  P1.getInstance().placeShip(p1Fleet[1], 2, 1, "column"); // Cruiser(3)
-  P1.getInstance().placeShip(p1Fleet[2], 4, 3, "row"); // Cruiser(3)
-  P1.getInstance().placeShip(p1Fleet[3], 6, 0, "column"); // Destroyer(2)
-  P1.getInstance().placeShip(p1Fleet[4], 8, 2, "row"); // Destroyer(2)
-  P1.getInstance().placeShip(p1Fleet[5], 6, 5, "column"); // Destroyer(2)
-  P1.getInstance().placeShip(p1Fleet[6], 0, 6, "row"); // Patrol(1)
-  P1.getInstance().placeShip(p1Fleet[7], 2, 8, "column"); // Patrol(1)
-  P1.getInstance().placeShip(p1Fleet[8], 5, 7, "row"); // Patrol(1)
-  P1.getInstance().placeShip(p1Fleet[9], 9, 9, "column"); // Patrol(1)
+  // const p1Fleet = createFleet();
+  // P1.getInstance().placeShip(p1Fleet[0], 0, 0, "row"); // Battleship(4)
+  // P1.getInstance().placeShip(p1Fleet[1], 2, 1, "column"); // Cruiser(3)
+  // P1.getInstance().placeShip(p1Fleet[2], 4, 3, "row"); // Cruiser(3)
+  // P1.getInstance().placeShip(p1Fleet[3], 6, 0, "column"); // Destroyer(2)
+  // P1.getInstance().placeShip(p1Fleet[4], 8, 2, "row"); // Destroyer(2)
+  // P1.getInstance().placeShip(p1Fleet[5], 6, 5, "column"); // Destroyer(2)
+  // P1.getInstance().placeShip(p1Fleet[6], 0, 6, "row"); // Patrol(1)
+  // P1.getInstance().placeShip(p1Fleet[7], 2, 8, "column"); // Patrol(1)
+  // P1.getInstance().placeShip(p1Fleet[8], 5, 7, "row"); // Patrol(1)
+  // P1.getInstance().placeShip(p1Fleet[9], 9, 9, "column"); // Patrol(1)
 
   // Place ships for Player 2 (computer)
   const p2Fleet = createFleet();
@@ -99,6 +101,42 @@ function playGame() {
   return gameState;
 }
 
+function randomPlacement(player) {
+  function createFleet() {
+    return [
+      ship(4), // 1× Battleship (4)
+      ship(3),
+      ship(3), // 2× Cruiser (3)
+      ship(2),
+      ship(2),
+      ship(2), // 3× Destroyer (2)
+      ship(1),
+      ship(1),
+      ship(1),
+      ship(1), // 4× Patrol Boat (1)
+    ];
+  }
+
+  const fleet = createFleet();
+
+  for (let i = 0; i < 10; i++) {
+    const direction = Math.random() < 0.5 ? "row" : "column";
+    const placeX = Math.floor(Math.random() * 10);
+    const placeY = Math.floor(Math.random() * 10);
+
+    const currentShip = fleet[i];
+
+    const valid = player.isValidPlacement(currentShip, placeX, placeY, direction);
+    if (!valid) {
+      console.log("ship spotted");
+      i--;
+      continue;
+    }
+
+    player.placeShip(currentShip, placeX, placeY, direction);
+  }
+}
+
 //! maybe not needed? was for testing
 function playTurn() {
   if (!gameState || gameState.gameOver) return;
@@ -148,6 +186,14 @@ function initEventListeners() {
     } else if (e.target.matches("[data-play]")) {
       console.log("Play turn button pressed");
       playTurn();
+    } else if (e.target.matches("[data-random]")) {
+      console.log("random btn");
+
+      if (gameState.turnCount > 0) {
+        console.log("can't place ships during game");
+      } else {
+        resetGame();
+      }
     }
   });
 }
@@ -171,6 +217,9 @@ function handleCellClick(e) {
     console.log("Can't attack your own board!");
     return;
   }
+
+  gameState.turnCount++;
+  // console.log(gameState.turnCount);
 
   const { currentPlayer, opponent } = gameState;
   const row = parseInt(target.dataset.row);
@@ -219,6 +268,7 @@ function makeComputerMove() {
 
   if (currentPlayer.getType() !== "computer") return;
 
+  gameState.turnCount++;
   // console.log("Computer is thinking...");
 
   setTimeout(() => {
