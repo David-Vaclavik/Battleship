@@ -64,11 +64,14 @@ dialog {
 h1 {
   font-size: 72px;
   letter-spacing: 4px;
+
+  margin: 20px;
 }
 
 /* ================================== Reset ends here =================================== */
 
 button {
+  width: 130px;
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
@@ -106,16 +109,16 @@ button:active:not(:disabled) {
 main {
   width: 100%;
   padding: 20px;
-  margin: 20px;
-  background-color: brown;
+  /* margin: 20px; */
+  /* background-color: brown; */
 }
 
 .app {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 10px;
-  background-color: darkgreen;
+  /* padding: 10px; */
+  /* background-color: darkgreen; */
 }
 
 .gameboard-container {
@@ -124,8 +127,10 @@ main {
   grid-template-rows: repeat(10, 1fr);
   /* gap: 1px; */
   padding: 5px;
-  margin: 10px;
+  margin: 10px 40px;
   background-color: oklch(30% 0.15 240);
+  border-radius: 5px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .gameboard-container button {

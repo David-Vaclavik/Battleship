@@ -11,26 +11,23 @@ function playGame() {
   const P1 = player("human");
   const P2 = player("computer");
 
-  //? maybe should be in ships?
   // Create fleet: 1×4, 2×3, 3×2, 4×1
-  function createFleet() {
-    return [
-      ship(4), // 1× Battleship (4)
-      ship(3),
-      ship(3), // 2× Cruiser (3)
-      ship(2),
-      ship(2),
-      ship(2), // 3× Destroyer (2)
-      ship(1),
-      ship(1),
-      ship(1),
-      ship(1), // 4× Patrol Boat (1)
-    ];
-  }
+  // function createFleet() {
+  //   return [
+  //     ship(4), // 1× Battleship (4)
+  //     ship(3),
+  //     ship(3), // 2× Cruiser (3)
+  //     ship(2),
+  //     ship(2),
+  //     ship(2), // 3× Destroyer (2)
+  //     ship(1),
+  //     ship(1),
+  //     ship(1),
+  //     ship(1), // 4× Patrol Boat (1)
+  //   ];
+  // }
 
-  //TODO: add random placement of ships
   randomPlacement(P1.getInstance());
-
   // Place ships for Player 1 (human)
   // const p1Fleet = createFleet();
   // P1.getInstance().placeShip(p1Fleet[0], 0, 0, "row"); // Battleship(4)
@@ -44,18 +41,19 @@ function playGame() {
   // P1.getInstance().placeShip(p1Fleet[8], 5, 7, "row"); // Patrol(1)
   // P1.getInstance().placeShip(p1Fleet[9], 9, 9, "column"); // Patrol(1)
 
+  randomPlacement(P2.getInstance());
   // Place ships for Player 2 (computer)
-  const p2Fleet = createFleet();
-  P2.getInstance().placeShip(p2Fleet[0], 1, 2, "column"); // Battleship(4)
-  P2.getInstance().placeShip(p2Fleet[1], 3, 6, "row"); // Cruiser(3)
-  P2.getInstance().placeShip(p2Fleet[2], 6, 2, "column"); // Cruiser(3)
-  P2.getInstance().placeShip(p2Fleet[3], 0, 7, "row"); // Destroyer(2)
-  P2.getInstance().placeShip(p2Fleet[4], 8, 0, "column"); // Destroyer(2)
-  P2.getInstance().placeShip(p2Fleet[5], 5, 8, "row"); // Destroyer(2)
-  P2.getInstance().placeShip(p2Fleet[6], 0, 0, "column"); // Patrol(1)
-  P2.getInstance().placeShip(p2Fleet[7], 2, 0, "row"); // Patrol(1)
-  P2.getInstance().placeShip(p2Fleet[8], 7, 5, "column"); // Patrol(1)
-  P2.getInstance().placeShip(p2Fleet[9], 9, 4, "row"); // Patrol(1)
+  // const p2Fleet = createFleet();
+  // P2.getInstance().placeShip(p2Fleet[0], 1, 2, "column"); // Battleship(4)
+  // P2.getInstance().placeShip(p2Fleet[1], 3, 6, "row"); // Cruiser(3)
+  // P2.getInstance().placeShip(p2Fleet[2], 6, 2, "column"); // Cruiser(3)
+  // P2.getInstance().placeShip(p2Fleet[3], 0, 7, "row"); // Destroyer(2)
+  // P2.getInstance().placeShip(p2Fleet[4], 8, 0, "column"); // Destroyer(2)
+  // P2.getInstance().placeShip(p2Fleet[5], 5, 8, "row"); // Destroyer(2)
+  // P2.getInstance().placeShip(p2Fleet[6], 0, 0, "column"); // Patrol(1)
+  // P2.getInstance().placeShip(p2Fleet[7], 2, 0, "row"); // Patrol(1)
+  // P2.getInstance().placeShip(p2Fleet[8], 7, 5, "column"); // Patrol(1)
+  // P2.getInstance().placeShip(p2Fleet[9], 9, 4, "row"); // Patrol(1)
 
   // console.log(P1.getInstance().getBoard());
   //TODO: Add the coords numbers
