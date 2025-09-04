@@ -1,7 +1,5 @@
 // eslint-disable-next-line
 import { ship } from "./ship.js";
-// eslint-disable-next-line
-import util from "util";
 
 function gameboard() {
   let board = [];

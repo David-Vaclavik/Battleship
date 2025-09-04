@@ -7,13 +7,15 @@
 * {
   margin: 0;
   padding: 0;
-  line-height: calc(1em + 0.5rem); /*? experimental */
+  /*? experimental */
+  /* line-height: calc(1em + 0.5rem); */
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* font-family: sans-serif; */
   font-family: "Inter", sans-serif;
   /* font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
   background-color: oklch(20% 0 0);
@@ -75,46 +77,124 @@ button {
   font-size: 1.5rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 1px 2px oklch(0% 0 0 / 0.05);
+  /* transition: background 0.2s, box-shadow 0.2s; */
+  /* box-shadow: 0 1px 2px oklch(0% 0 0 / 0.05); */
 }
 
-button:hover {
-  background-color: oklch(70% 0.15 240);
-  box-shadow: 0 2px 6px oklch(0% 0 0 / 0.1);
+button:hover:not(:disabled) {
+  /* background-color: oklch(70% 0.15 240); */
+  /* background-color: oklch(0% 0 0 / 0.1); */
+  filter: brightness(1.1);
+  /* box-shadow: 0 2px 6px oklch(0% 0 0 / 0.1); */
 }
 
-button:active {
-  background-color: oklch(50% 0.15 240);
-  box-shadow: 0 1px 2px oklch(0% 0 0 / 0.08);
+button:active:not(:disabled) {
+  /* background-color: oklch(50% 0.15 240); */
+  filter: brightness(0.8);
+  /* box-shadow: 0 1px 2px oklch(0% 0 0 / 0.08); */
+}
+
+.display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 600;
+  background-color: rgb(124, 83, 6);
 }
 
 main {
+  width: 100%;
   padding: 20px;
   margin: 20px;
   background-color: brown;
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  background-color: darkgreen;
 }
 
 .gameboard-container {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  gap: 1px;
+  /* gap: 1px; */
   padding: 5px;
+  margin: 10px;
   background-color: oklch(30% 0.15 240);
 }
 
 .gameboard-container button {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+
+  display: grid;
+  place-items: center;
+  font-size: 52px;
+  /* font-size: 24px; */
+  line-height: 1 !important;
+  /* text-align: center; */
+  /* line-height: 50px; */
+  /* font-family: monospace; */
+
   width: 50px;
   height: 50px;
-  border: none;
+  /* border: none; */
   border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0;
   cursor: pointer;
   color: white;
   /* background-color: darkblue; */
+  /* border: 1px solid red; */
+  /* background-color: rgba(255, 0, 0, 0.1); */
 }
 
 .gameboard-container button:hover {
-  background-color: oklch(70% 0.15 240);
+  /* background-color: oklch(70% 0.15 240); */
+  /* background-color: oklch(0% 0 0 / 0.1); */
+  /* filter: brightness(0.9); */
+  /* filter: brightness(1.1); */
+}
+
+.gameboard-container button:active {
+  /* background-color: oklch(50% 0.15 240); */
+  /* background-color: oklch(60% 0.15 240); */
+}
+
+.gameboard-container button:disabled {
+  /* cursor: not-allowed; */
+  cursor: default;
+  /* background-color: oklch(30% 0.15 240); */
+  /* filter: brightness(0.8); */
+}
+
+/* State-based styling using data attributes */
+.cell[data-state="hit"] {
+  background-color: #ff4444; /* Red for hit */
+  color: white;
+}
+
+.cell[data-state="miss"] {
+  background-color: oklch(70% 0.15 240); /* Blue for miss */
+  color: white;
+}
+
+.cell[data-state="ship"] {
+  background-color: oklch(50% 0 0); /* Gray for non-hit ship */
+}
+
+.cell[data-state="sunk"] {
+  /* background-color: #660000; */
+  background-color: oklch(30.848% 0.1183 27.823);
+  color: #ffaaaa;
+}
+
+nav button {
+  margin: 10px;
 }

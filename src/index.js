@@ -1,15 +1,13 @@
 import "./styles/styles.css";
-import { homepage } from "./modules/homepage.js";
 
-const homeButton = document.querySelector("[data-home]");
+// eslint-disable-next-line
+import { player } from "./modules/player.js";
+// eslint-disable-next-line
+import { ship } from "./modules/ship.js";
+// eslint-disable-next-line
+import { gameboard } from "./modules/gameboard.js";
+// eslint-disable-next-line
+import { playGame, initEventListeners } from "./modules/dom.js";
 
-homepage();
-
-homeButton.addEventListener("click", () => {
-  homepage();
-});
-
-//
-
-// Error below for ESLint
-// var x = ; // This is a syntax error and ESLint will report it
+playGame();
+initEventListeners();

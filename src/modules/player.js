@@ -29,7 +29,7 @@ function player(type) {
       const board = opponentBoard.getBoard();
       if (board[attackX][attackY].hit === true) {
         while (board[attackX][attackY].hit === true) {
-          console.log(`Already attacked spot at (${attackX}, ${attackY})`);
+          // console.log(`Already attacked spot at (${attackX}, ${attackY})`);
           attackX = Math.floor(Math.random() * 10);
           attackY = Math.floor(Math.random() * 10);
         }
@@ -44,6 +44,7 @@ function player(type) {
 
 export { player };
 
+/*
 console.log("--------- Player ---------");
 const P1 = player("real");
 const P2 = player("clanker");
@@ -81,3 +82,4 @@ console.log("--------- Player 2 ---------");
 P2.getOnlyBoard();
 
 // console.log(cords);
+*/
